@@ -801,175 +801,25 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 👥 Contributors
+## 👥 Developed By
 
 <div align="center">
 
-### **🌟 Our Amazing Development Team**
+### **OGO Technology**
 
-<table>
-<tr>
-<td align="center" valign="top">
-<a href="https://github.com/Ranuka-Jayesh">
-<img src="https://github.com/Ranuka-Jayesh.png" width="120px;" alt="Ranuka Jayesh" style="border-radius: 50%; border: 3px solid #4CAF50; padding: 2px;"/>
 <br />
 <br />
-<sub><b>👨‍💻 Ranuka Jayesh</b></sub>
-<br />
-<sub>🏆 Founder & Lead Developer</sub>
-</a>
-<br />
-<br />
-<a href="https://github.com/Ranuka-Jayesh" style="text-decoration: none;">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-</a>
-</td>
-<td align="center" valign="top">
-<a href="https://github.com/MPrajakaruna">
-<img src="https://github.com/MPrajakaruna.png" width="120px;" alt="R.Y.M.M.P.Rajakaruna" style="border-radius: 50%; border: 3px solid #2196F3; padding: 2px;"/>
-<br />
-<br />
-<sub><b>💻 R.Y.M.M.P.Rajakaruna</b></sub>
-<br />
-<sub>🚀 Developer</sub>
-</a>
-<br />
-<br />
-<a href="https://github.com/MPrajakaruna" style="text-decoration: none;">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-</a>
-</td>
-<td align="center" valign="top">
-<a href="https://github.com/AshenSuri">
-<img src="https://github.com/AshenSuri.png" width="120px;" alt="Ashen Suriyabandara" style="border-radius: 50%; border: 3px solid #FF9800; padding: 2px;"/>
-<br />
-<br />
-<sub><b>⚡ Ashen Suriyabandara</b></sub>
-<br />
-<sub>🚀 Developer</sub>
-</a>
-<br />
-<br />
-<a href="https://github.com/AshenSuri" style="text-decoration: none;">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-</a>
-</td>
-</tr>
-<tr>
-<td align="center" valign="top">
-<a href="https://github.com/ruwanthac">
-<img src="https://github.com/ruwanthac.png" width="120px;" alt="Ruwantha Bandara" style="border-radius: 50%; border: 3px solid #9C27B0; padding: 2px;"/>
-<br />
-<br />
-<sub><b>🎨 Ruwantha Bandara</b></sub>
-<br />
-<sub>🚀 Developer</sub>
-</a>
-<br />
-<br />
-<a href="https://github.com/ruwanthac" style="text-decoration: none;">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-</a>
-</td>
-<td align="center" valign="top">
-<a href="https://github.com/Denuwan10">
-<img src="https://github.com/Denuwan10.png" width="120px;" alt="Denuwan" style="border-radius: 50%; border: 3px solid #F44336; padding: 2px;"/>
-<br />
-<br />
-<sub><b>🔧 Denuwan</b></sub>
-<br />
-<sub>🚀 Developer</sub>
-</a>
-<br />
-<br />
-<a href="https://github.com/Denuwan10" style="text-decoration: none;">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-</a>
-</td>
-<td align="center" valign="top">
-<a href="https://github.com/yasasdulneth">
-<img src="https://github.com/yasasdulneth.png" width="120px;" alt="Yasas Dulneth" style="border-radius: 50%; border: 3px solid #00BCD4; padding: 2px;"/>
-<br />
-<br />
-<sub><b>✨ Yasas Dulneth</b></sub>
-<br />
-<sub>🚀 Developer</sub>
-</a>
-<br />
-<br />
-<a href="https://github.com/yasasdulneth" style="text-decoration: none;">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-</a>
-</td>
-</tr>
-<tr>
-<td align="center" valign="top" colspan="3">
-<a href="https://www.ogotechnology.net">
-<img src="https://via.placeholder.com/120/1E88E5/FFFFFF?text=OGO" width="120px;" alt="OGO Technology" style="border-radius: 50%; border: 3px solid #1E88E5; padding: 2px;"/>
-<br />
-<br />
-<sub><b>🎨 OGO Technology</b></sub>
-<br />
-<sub>🎯 Interactive Design Developer</sub>
-</a>
-<br />
-<br />
+
+**Interactive Design & Development**
+
 <a href="https://www.ogotechnology.net" style="text-decoration: none;">
-<img src="https://img.shields.io/badge/OGO_Technology-1E88E5?style=for-the-badge&logo=globe&logoColor=white" alt="OGO Technology"/>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwXIZQltAHpc9Wiz7nWpNq5nDOxr1yPfPGZ20rPw6HKw&s" alt="OGO Technology"/>
 </a>
-</td>
-</tr>
-</table>
 
----
+<br />
+<br />
 
-### **📋 Contributors List**
-
-<table>
-<tr>
-<td align="center">
-<a href="https://github.com/Ranuka-Jayesh">
-<img src="https://img.shields.io/badge/Ranuka_Jayesh-Founder_%26_Lead_Developer-4CAF50?style=flat-square&logo=github&logoColor=white" alt="Ranuka Jayesh"/>
-</a>
-</td>
-<td align="center">
-<a href="https://github.com/MPrajakaruna">
-<img src="https://img.shields.io/badge/R.Y.M.M.P.Rajakaruna-Developer-2196F3?style=flat-square&logo=github&logoColor=white" alt="R.Y.M.M.P.Rajakaruna"/>
-</a>
-</td>
-<td align="center">
-<a href="https://github.com/AshenSuri">
-<img src="https://img.shields.io/badge/Ashen_Suriyabandara-Developer-FF9800?style=flat-square&logo=github&logoColor=white" alt="Ashen Suriyabandara"/>
-</a>
-</td>
-</tr>
-<tr>
-<td align="center">
-<a href="https://github.com/ruwanthac">
-<img src="https://img.shields.io/badge/Ruwantha_Bandara-Developer-9C27B0?style=flat-square&logo=github&logoColor=white" alt="Ruwantha Bandara"/>
-</a>
-</td>
-<td align="center">
-<a href="https://github.com/Denuwan10">
-<img src="https://img.shields.io/badge/Denuwan-Developer-F44336?style=flat-square&logo=github&logoColor=white" alt="Denuwan"/>
-</a>
-</td>
-<td align="center">
-<a href="https://github.com/yasasdulneth">
-<img src="https://img.shields.io/badge/Yasas_Dulneth-Developer-00BCD4?style=flat-square&logo=github&logoColor=white" alt="Yasas Dulneth"/>
-</a>
-</td>
-</tr>
-<tr>
-<td align="center" colspan="3">
-<a href="https://www.ogotechnology.net">
-<img src="https://img.shields.io/badge/OGO_Technology-Interactive_Design_Developer-1E88E5?style=flat-square&logo=globe&logoColor=white" alt="OGO Technology"/>
-</a>
-</td>
-</tr>
-</table>
-
-**Made with ❤️ by an amazing team of developers**
+**Made with ❤️ by [OGO Technology](https://www.ogotechnology.net)**
 
 </div>
 

@@ -1,7 +1,5 @@
 services:
   # Backend Server for testing
-  # Note: MongoDB is provided by GitHub Actions service container on localhost:27017
-  # Using host network mode to access the GitHub Actions MongoDB service
   backend:
     image: one-click-backend:latest
     container_name: one-click-backend-test

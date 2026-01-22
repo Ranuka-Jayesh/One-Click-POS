@@ -1,28 +1,6 @@
 version: '3.8'
 
 services:
-  # MongoDB Database (OPTIONAL - Only needed if not using MongoDB Atlas)
-  # Uncomment below if you want to use local MongoDB instead of Atlas
-  # mongodb:
-  #   image: mongo:7.0
-  #   container_name: one-click-mongodb-prod
-  #   restart: always
-  #   environment:
-  #     MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME}
-  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
-  #     MONGO_INITDB_DATABASE: ${DB_NAME:-restaurant}
-  #   volumes:
-  #     - mongodb_data_prod:/data/db
-  #     - mongodb_config_prod:/data/configdb
-  #   networks:
-  #     - one-click-network-prod
-  #   healthcheck:
-  #     test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
-  #     interval: 10s
-  #     timeout: 5s
-  #     retries: 5
-  #   command: mongod --auth
-
   # Backend Server
   backend:
     build:
@@ -44,10 +22,6 @@ services:
       - "3000:3000"
     volumes:
       - uploads_data:/app/uploads
-    # Remove depends_on when using Atlas
-    # depends_on:
-    #   mongodb:
-    #     condition: service_healthy
     networks:
       - one-click-network-prod
     healthcheck:

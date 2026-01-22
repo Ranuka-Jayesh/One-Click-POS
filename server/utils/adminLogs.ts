@@ -1,0 +1,28 @@
+import { Db } from 'mongodb';
+
+export async function logAdminActivity(
+  db: Db,
+  category: string,
+  action: string,
+  username: string,
+  description: string,
+  status: 'success' | 'failed' | 'warning' | 'info'
+): Promise<void> {
+  try {
+    const logsCollection = db.collection('admin_logs');
+
+    await logsCollection.insertOne({
+      category,
+      action,
+      username,
+      description,
+      status,
+      timestamp: new Date(),
+      ip: 'N/A', // In production, extract from request
+      userAgent: 'N/A' // In production, extract from request
+    });
+  } catch (error) {
+    console.error('Error logging admin activity:', error);
+    // Don't throw - logging failures shouldn't break the app
+  }
+}

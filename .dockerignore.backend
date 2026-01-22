@@ -1,0 +1,58 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+dist
+dist-server
+build
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore*
+
+# Frontend files (not needed in backend)
+src
+public
+index.html
+vite.config.ts
+tailwind.config.ts
+postcss.config.js
+tsconfig.app.json
+tsconfig.json
+components.json
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+*.log
+.cache
+README.md

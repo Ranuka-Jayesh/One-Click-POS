@@ -1,0 +1,26 @@
+services:
+  # Backend Server for testing
+  # Note: MongoDB is provided by GitHub Actions service container on localhost:27017
+  # Using host network mode to access the GitHub Actions MongoDB service
+  backend:
+    image: one-click-backend:latest
+    container_name: one-click-backend-test
+    network_mode: host
+    environment:
+      NODE_ENV: test
+      PORT: 3000
+      MONGODB_USERNAME: ${MONGODB_USERNAME:-test_user}
+      MONGODB_PASSWORD: ${MONGODB_PASSWORD:-test_password}
+      # Connect to GitHub Actions MongoDB service via localhost (host network)
+      MONGODB_CLUSTER: localhost:27017
+      MONGODB_USE_ATLAS: false
+      DB_NAME: ${DB_NAME:-test_restaurant}
+      MONGODB_APP_NAME: test-cluster
+    # No ports mapping needed with host network mode
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+    restart: on-failure

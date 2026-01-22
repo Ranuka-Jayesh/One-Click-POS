@@ -1,0 +1,103 @@
+version: '3.8'
+
+services:
+  # MongoDB Database (OPTIONAL - Only needed if not using MongoDB Atlas)
+  # Uncomment below if you want to use local MongoDB instead of Atlas
+  # mongodb:
+  #   image: mongo:7.0
+  #   container_name: one-click-mongodb
+  #   restart: unless-stopped
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME:-admin}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD:-password}
+  #     MONGO_INITDB_DATABASE: ${DB_NAME:-restaurant}
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongodb_data:/data/db
+  #     - mongodb_config:/data/configdb
+  #   networks:
+  #     - one-click-network
+  #   healthcheck:
+  #     test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+  # Backend Server
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+      target: development
+    container_name: one-click-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      MONGODB_USERNAME: ${MONGODB_USERNAME}
+      MONGODB_PASSWORD: ${MONGODB_PASSWORD}
+      MONGODB_CLUSTER: ${MONGODB_CLUSTER}
+      MONGODB_USE_ATLAS: ${MONGODB_USE_ATLAS:-true}
+      DB_NAME: ${DB_NAME:-restaurant}
+      MONGODB_APP_NAME: ${MONGODB_APP_NAME:-restaurant-cluster}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server:/app/server:ro
+      - ./uploads:/app/uploads
+      - ./package.json:/app/package.json:ro
+      - ./tsconfig.server.json:/app/tsconfig.server.json:ro
+      - /app/node_modules
+    # Remove depends_on when using Atlas
+    # depends_on:
+    #   mongodb:
+    #     condition: service_healthy
+    networks:
+      - one-click-network
+    command: npm run dev:server
+
+  # Frontend Server
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      target: development
+    container_name: one-click-frontend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      VITE_API_URL: http://localhost:3000
+      VITE_SERVER_URL: http://localhost:3000
+      DOCKER_ENV: "true"
+      VITE_DOCKER: "true"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src:/app/src:ro
+      - ./public:/app/public:ro
+      - ./index.html:/app/index.html:ro
+      - ./vite.config.ts:/app/vite.config.ts:ro
+      - ./tailwind.config.ts:/app/tailwind.config.ts:ro
+      - ./postcss.config.js:/app/postcss.config.js:ro
+      - ./tsconfig.json:/app/tsconfig.json:ro
+      - ./tsconfig.app.json:/app/tsconfig.app.json:ro
+      - ./components.json:/app/components.json:ro
+      - ./package.json:/app/package.json:ro
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - one-click-network
+    command: npm run dev -- --host 0.0.0.0
+
+networks:
+  one-click-network:
+    driver: bridge
+
+# Uncomment volumes if using local MongoDB
+# volumes:
+#   mongodb_data:
+#     driver: local
+#   mongodb_config:
+#     driver: local

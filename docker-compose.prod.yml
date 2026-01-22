@@ -1,0 +1,97 @@
+version: '3.8'
+
+services:
+  # MongoDB Database (OPTIONAL - Only needed if not using MongoDB Atlas)
+  # Uncomment below if you want to use local MongoDB instead of Atlas
+  # mongodb:
+  #   image: mongo:7.0
+  #   container_name: one-click-mongodb-prod
+  #   restart: always
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
+  #     MONGO_INITDB_DATABASE: ${DB_NAME:-restaurant}
+  #   volumes:
+  #     - mongodb_data_prod:/data/db
+  #     - mongodb_config_prod:/data/configdb
+  #   networks:
+  #     - one-click-network-prod
+  #   healthcheck:
+  #     test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+  #   command: mongod --auth
+
+  # Backend Server
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+      target: production
+    container_name: one-click-backend-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      MONGODB_USERNAME: ${MONGODB_USERNAME}
+      MONGODB_PASSWORD: ${MONGODB_PASSWORD}
+      MONGODB_CLUSTER: ${MONGODB_CLUSTER}
+      MONGODB_USE_ATLAS: ${MONGODB_USE_ATLAS:-true}
+      DB_NAME: ${DB_NAME:-restaurant}
+      MONGODB_APP_NAME: ${MONGODB_APP_NAME:-restaurant-cluster}
+    ports:
+      - "3000:3000"
+    volumes:
+      - uploads_data:/app/uploads
+    # Remove depends_on when using Atlas
+    # depends_on:
+    #   mongodb:
+    #     condition: service_healthy
+    networks:
+      - one-click-network-prod
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend Server
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      target: production
+      args:
+        - VITE_API_URL=/api
+        - VITE_SERVER_URL=
+    container_name: one-click-frontend-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - one-click-network-prod
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+networks:
+  one-click-network-prod:
+    driver: bridge
+
+volumes:
+  # Uncomment if using local MongoDB
+  # mongodb_data_prod:
+  #   driver: local
+  # mongodb_config_prod:
+  #   driver: local
+  uploads_data:
+    driver: local
